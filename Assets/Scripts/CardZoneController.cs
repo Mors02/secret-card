@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/***
+ * Class used to control the cards in hand
+ */
 public class CardZoneController : MonoBehaviour
 {
     GameObject zoomedCard;
@@ -14,6 +16,7 @@ public class CardZoneController : MonoBehaviour
         this.zoomedCard.SetActive(false);
     }
 
+    //Highlight the card currently hovered
     public void SetCard(int cardIdx)
     {
         this.highlightedCard = cardIdx;
@@ -27,6 +30,7 @@ public class CardZoneController : MonoBehaviour
         }
     }
 
+    //No cards are hovered
     public void ResetCard(int cardIdx)
     {
         this.highlightedCard = -1;
@@ -50,6 +54,7 @@ public class CardZoneController : MonoBehaviour
         return this.highlightedCard == -1;
     }
 
+    //To zoom an hovered card
     public void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.LeftAlt))
