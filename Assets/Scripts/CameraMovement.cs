@@ -69,7 +69,7 @@ public class CameraMovement : MonoBehaviour
                 rotation.x = -speed * Time.fixedDeltaTime * (this.transform.rotation.eulerAngles.x < 0.5f ? 0 : 1);
 
         }
-        Debug.Log(this.transform.rotation.eulerAngles);
+        //Debug.Log(this.transform.rotation.eulerAngles);
 
 
         this.transform.Rotate(rotation);

@@ -9,11 +9,15 @@ public class CardZoneController : MonoBehaviour
     GameObject zoomedCard;
     bool zoom;
     int highlightedCard;
+
+    [SerializeField]
+    List<Card> hand;
     void Start()
     {
         this.highlightedCard = -1;
         this.zoomedCard = GameObject.FindGameObjectWithTag("ZoomedCard");
         this.zoomedCard.SetActive(false);
+        this.hand = new List<Card>();
     }
 
     //Highlight the card currently hovered
@@ -68,12 +72,22 @@ public class CardZoneController : MonoBehaviour
         if (zoom && this.highlightedCard != -1)
         {
             this.zoomedCard.SetActive(true);
-            this.zoomedCard.GetComponent<Card>().Setup(this.transform.GetChild(this.highlightedCard).GetComponent<Card>());
+            this.zoomedCard.GetComponent<CardUI>().Setup(this.transform.GetChild(this.highlightedCard).GetComponent<CardUI>().card);
         }
         else
         {
             this.zoomedCard.SetActive(false);
         }
+    }
+
+    public void AddCard(Card card)
+    {
+        Debug.Log(card.cardname);
+        this.hand.Add(card);
+        GameObject cardPrefab = GameObject.Instantiate(GameAssets.i.CardPrefabUI, this.transform);
+        cardPrefab.GetComponent<CardUI>().Setup(card);
+        cardPrefab.GetComponent<Animator>().SetTrigger("Draw");
+
     }
 
 }

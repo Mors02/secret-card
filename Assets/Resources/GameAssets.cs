@@ -21,6 +21,7 @@ public class GameAssets : MonoBehaviour
     }
 
     #region Card
-    public Object CardPrefab;
+    //Card prefab used in UI
+    public GameObject CardPrefabUI;
     #endregion
 }
