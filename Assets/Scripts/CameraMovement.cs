@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
     {
         this.defaultRotation = this.transform.rotation;
         this.currentPosition = this.transform.position;
-        topVision = false;
+        topVision = true;
     }
 
     // Update is called once per frame
@@ -73,20 +73,20 @@ public class CameraMovement : MonoBehaviour
 
 
         this.transform.Rotate(rotation);
-        
+        /*
         if (Input.GetKey(KeyCode.Space))
         {
             this.transform.position = currentPosition;
             this.transform.rotation = this.defaultRotation;
             topVision = false;
         }
-
+        
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             this.transform.position = this.topViewPos;
             this.transform.rotation = Quaternion.Euler(this.topViewRot);
             topVision = true;
         }
-            
+          */  
     }
 }

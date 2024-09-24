@@ -84,6 +84,9 @@ MonoBehaviour:
   textBox: {fileID: 4222778897593510113}
   costBox: {fileID: 6319016676700304095}
   nameBox: {fileID: 1544964278917492604}
+  mask:
+    serializedVersion: 2
+    m_Bits: 119
 --- !u!114 &8669298157000796739
 MonoBehaviour:
   m_ObjectHideFlags: 0
