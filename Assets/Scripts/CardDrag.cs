@@ -47,10 +47,6 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
             this.hover.transform.position = hitInfo.point;
             lastPosition = hitInfo.point;
         }
-        else
-        {
-            //Debug.Log("NO HIT");
-        }
 
 
     }
@@ -85,7 +81,8 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
             //animate and destroy the ui element
             card.GetComponent<Animator>().SetTrigger("Place");
             //call the animation trigger to make normal the other cards in hand
-            GameAssets.i.Hand.ResetCard(this.transform.parent.GetSiblingIndex(), true);
+            GameAssets.i.Hand.ResetCard(this.transform.parent.GetSiblingIndex());
+            card.GetComponent<CardObject>().Setup(this.card);
             Destroy(this.transform.parent.gameObject);
 
 

@@ -21,30 +21,30 @@ public class CardZoneController : MonoBehaviour
     }
 
     //Highlight the card currently hovered
-    public void SetCard(int cardIdx, bool inHand)
+    public void SetCard(int cardIdx)
     {
         //highlight the single card and the one on the left and the right
         this.highlightedCard = cardIdx;
-        if (cardIdx > 0 && inHand)
+        if (cardIdx > 0)
         {
             this.transform.GetChild(cardIdx - 1).GetComponent<Animator>().SetTrigger("HideLeft");
         }
-        if (cardIdx < this.transform.childCount-1 && inHand)
+        if (cardIdx < this.transform.childCount-1)
         {
             this.transform.GetChild(cardIdx + 1).GetComponent<Animator>().SetTrigger("HideRight");
         }
     }
 
     //No cards are hovered
-    public void ResetCard(int cardIdx, bool inHand)
+    public void ResetCard(int cardIdx)
     {
         //animations go back to default state
         this.highlightedCard = -1;
-        if (cardIdx > 0 && inHand)
+        if (cardIdx > 0)
         {
             this.transform.GetChild(cardIdx - 1).GetComponent<Animator>().SetTrigger("ShowLeft");
         }
-        if (cardIdx < this.transform.childCount-1 && inHand)
+        if (cardIdx < this.transform.childCount-1)
         {
             this.transform.GetChild(cardIdx + 1).GetComponent<Animator>().SetTrigger("ShowRight");
         }

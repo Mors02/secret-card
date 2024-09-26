@@ -6,12 +6,9 @@ using UnityEngine.EventSystems;
 
 public class HighlightCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public LayoutElement le;
     public Transform t;
     public CardZoneController parent;
     public Animator animator;
-    int currentIndex;
-    Vector2 currentPos;
     public bool inHand;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +23,7 @@ public class HighlightCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (this.parent.IsACardNotHighlighted())
         {
             animator.SetTrigger("Highlight");
-            this.parent.SetCard(t.GetSiblingIndex(), inHand);
+            this.parent.SetCard(t.GetSiblingIndex());
         }
         
     }
@@ -36,7 +33,7 @@ public class HighlightCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (this.parent.IsCurrentCardHighlighted(t.GetSiblingIndex()))
         {
             animator.SetTrigger("Lowlight");
-            this.parent.ResetCard(t.GetSiblingIndex(), inHand);
+            this.parent.ResetCard(t.GetSiblingIndex());
         }
     }
 }
