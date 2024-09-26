@@ -35,6 +35,7 @@ public class Deck : MonoBehaviour
             Debug.Log(card.cardname);
             hand.AddCard(card);
             this.animator.SetTrigger("Draw");
+
         } else
         {
             Debug.Log("EMPTY DECK");

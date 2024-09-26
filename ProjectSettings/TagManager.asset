@@ -8,6 +8,7 @@ TagManager:
   - ZoomedCard
   - Board
   - Invisible
+  - Card
   layers:
   - Default
   - TransparentFX

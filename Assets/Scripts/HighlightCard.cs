@@ -12,12 +12,13 @@ public class HighlightCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Animator animator;
     int currentIndex;
     Vector2 currentPos;
+    public bool inHand;
     // Start is called before the first frame update
     void Start()
     {
-        this.currentIndex = t.GetSiblingIndex();
-        this.parent = GameObject.FindGameObjectWithTag("CardZone").GetComponent<CardZoneController>();
-        Debug.Log(this.gameObject.name + " " + this.currentPos);
+        //this.currentIndex = 
+        this.parent = GameAssets.i.Hand;
+        //Debug.Log(this.gameObject.name + " " + this.currentPos);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -25,18 +26,17 @@ public class HighlightCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (this.parent.IsACardNotHighlighted())
         {
             animator.SetTrigger("Highlight");
-            this.parent.SetCard(this.currentIndex);
+            this.parent.SetCard(t.GetSiblingIndex(), inHand);
         }
         
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (this.parent.IsCurrentCardHighlighted(this.currentIndex))
+        if (this.parent.IsCurrentCardHighlighted(t.GetSiblingIndex()))
         {
             animator.SetTrigger("Lowlight");
-            this.parent.ResetCard(this.currentIndex);
+            this.parent.ResetCard(t.GetSiblingIndex(), inHand);
         }
-
     }
 }

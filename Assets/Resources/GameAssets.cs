@@ -15,7 +15,13 @@ public class GameAssets : MonoBehaviour
     {
         get
         {
-            if (_i == null) _i = Instantiate(Resources.Load<GameAssets>("GameAssets"));
+            if (_i == null)
+            {
+                _i = Instantiate(Resources.Load<GameAssets>("GameAssets"));
+                //Debug.Log(GameObject.FindGameObjectWithTag("Board").name);
+                _i.Hand = GameObject.FindGameObjectWithTag("CardZone").GetComponent<CardZoneController>();
+                _i.Board = GameObject.FindGameObjectWithTag("Board");
+            }
             return _i;
         }
     }
@@ -24,5 +30,11 @@ public class GameAssets : MonoBehaviour
     //Card prefab used in UI
     public GameObject CardPrefabUI;
     public GameObject CardHover;
+    public GameObject PlacedCard;
+    #endregion
+
+    #region Static Objects
+    public GameObject Board;
+    public CardZoneController Hand;
     #endregion
 }

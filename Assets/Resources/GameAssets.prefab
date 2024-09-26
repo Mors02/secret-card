@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardPrefabUI: {fileID: 4478901967612094371, guid: ac146f6e1b8e02e47b37294367eb3ab2, type: 3}
   CardHover: {fileID: 5724335428351978983, guid: fea7a9dedd9713047a1e9283ffc47204, type: 3}
+  PlacedCard: {fileID: 9135536223158693984, guid: ce64aabf12133254db5a55053c2ecb77, type: 3}
+  Board: {fileID: 0}
