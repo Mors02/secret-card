@@ -36,7 +36,6 @@ public class CardUI : MonoBehaviour
         this.textBox.text = this.card.text;
         this.costBox.text = this.card.cost.ToString();
         this.nameBox.text = this.card.cardname;
-
     }
 
 

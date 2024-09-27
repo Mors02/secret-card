@@ -36,6 +36,20 @@ public class CardObject : MonoBehaviour
     public void Setup(Card card)
     {
         this.card = card;
+        this.card.onAddCounter.AddListener(UpdateVisuals);
+        this.textBox.text = card.text;
+        this.costBox.text = card.cost.ToString();
+        this.nameBox.text = card.cardname;
+    }
+
+    private void OnMouseDown()
+    {
+        this.card.PlayCard();
+    }
+
+    public void UpdateVisuals()
+    {
+        this.currentCounters.text = this.card.counters.ToString();
         this.textBox.text = card.text;
         this.costBox.text = card.cost.ToString();
         this.nameBox.text = card.cardname;

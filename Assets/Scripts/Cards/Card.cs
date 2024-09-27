@@ -1,28 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Card
 {
     public string text;
     public int cost;
     public string cardname;
-    protected int counters;
+    public int counters;
+    public UnityEvent onAddCounter;
+    public UnityEvent onCardPlayed;
     // Start is called before the first frame update
 
-    void AddCounter()
+    public void AddCounter()
     {
         this.counters++;
+        this.onAddCounter.Invoke();
     }
 
-    /*
-    public Card(string text, int cost, string cardname)
+    public void AddCounter(int counter)
     {
-        this.text = text;
-        this.cost = cost;
-        this.cardname = cardname;
-        this.counters = 0;
-    }*/
+        this.counters += counter;
+        this.onAddCounter.Invoke();
+    }
+
+    public void RemoveCounter(int counter)
+    {
+        this.counters -= counter;
+        this.onAddCounter.Invoke();
+    }
+
+    public Card()
+    {
+        if (onAddCounter == null)
+        {
+            onAddCounter = new UnityEngine.Events.UnityEvent();
+        }
+        if (onCardPlayed == null)
+        {
+            onCardPlayed = new UnityEngine.Events.UnityEvent();
+        }
+    }
 
     public abstract void PlayCard();
 

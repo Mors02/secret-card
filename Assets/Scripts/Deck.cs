@@ -19,9 +19,9 @@ public class Deck : MonoBehaviour
             {
                 this.cards = new Stack<Card>();
                 this.cards.Push(new EmmasGift());
+                this.cards.Push(new LifeSurge());
                 this.cards.Push(new EmmasGift());
-                this.cards.Push(new EmmasGift());
-                this.cards.Push(new EmmasGift());
+                this.cards.Push(new LifeSurge());
                 this.cards.Push(new EmmasGift());
         }
         hand = GameObject.FindGameObjectWithTag("CardZone").GetComponent<CardZoneController>();

@@ -16,4 +16,12 @@ public class BoardState : MonoBehaviour
     {
         this.cards.Add(card);
     }
+
+    public void NewTurn()
+    {
+        foreach (Card card in cards)
+        {
+            card.AddCounter();
+        }
+    }
 }
